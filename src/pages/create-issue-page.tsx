@@ -52,13 +52,24 @@ export function CreateIssuePage() {
                 </div>
 
                 <div className="grid gap-2">
+                  <Label htmlFor="description">Description</Label>
+
+                  <Textarea
+                    id="description"
+                    name="description"
+                    placeholder="Describe the issue..."
+                    className="min-h-32 resize-y"
+                  ></Textarea>
+                </div>
+
+                <div className="grid gap-2">
                   <Label htmlFor="priority">Priority</Label>
                   <Select name="priority">
                     <SelectTrigger id="priority" className="w-full">
                       <SelectValue placeholder="Select a priority" />
                     </SelectTrigger>
 
-                    <SelectContent>
+                    <SelectContent className="dark">
                       <SelectItem value="low">Low</SelectItem>
                       <SelectItem value="medium">Medium</SelectItem>
                       <SelectItem value="high">High</SelectItem>
