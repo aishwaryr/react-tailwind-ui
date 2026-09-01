@@ -9,6 +9,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export function CreateIssuePage() {
   return (
@@ -34,69 +42,73 @@ export function CreateIssuePage() {
               </p>
             </div>
 
-            <section>
-              <h2 className="text-lg font-medium">Issue details</h2>
+            <section className="max-w-2xl">
+              <form>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Issue details</CardTitle>
+                    <CardDescription>
+                      Provide a title, description and priority
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="grid gap-4">
+                    <div className="grid gap-2">
+                      <Label htmlFor="title">Title</Label>
+                      <Input
+                        id="title"
+                        name="title"
+                        placeholder="Enter issue heading..."
+                      />
+                    </div>
 
-              <p className="mt-1 text-sm text-muted-foreground">
-                Provide a title, description, and priority.
-              </p>
+                    <div className="grid gap-2">
+                      <Label htmlFor="description">Description</Label>
 
-              <form className="mt-6 grid gap-4">
-                <div className="grid gap-2">
-                  <Label htmlFor="title">Title</Label>
-                  <Input
-                    id="title"
-                    name="title"
-                    placeholder="Enter issue heading..."
-                  />
-                </div>
+                      <Textarea
+                        id="description"
+                        name="description"
+                        placeholder="Describe the issue..."
+                        className="min-h-32 resize-y"
+                      ></Textarea>
+                    </div>
 
-                <div className="grid gap-2">
-                  <Label htmlFor="description">Description</Label>
+                    <div className="grid gap-2">
+                      <Label htmlFor="priority">Priority</Label>
+                      <Select name="priority">
+                        <SelectTrigger id="priority" className="w-full">
+                          <SelectValue placeholder="Select a priority" />
+                        </SelectTrigger>
 
-                  <Textarea
-                    id="description"
-                    name="description"
-                    placeholder="Describe the issue..."
-                    className="min-h-32 resize-y"
-                  ></Textarea>
-                </div>
+                        <SelectContent className="dark">
+                          <SelectItem value="low">Low</SelectItem>
+                          <SelectItem value="medium">Medium</SelectItem>
+                          <SelectItem value="high">High</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
 
-                <div className="grid gap-2">
-                  <Label htmlFor="priority">Priority</Label>
-                  <Select name="priority">
-                    <SelectTrigger id="priority" className="w-full">
-                      <SelectValue placeholder="Select a priority" />
-                    </SelectTrigger>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                      <div className="grid gap-2">
+                        <Label htmlFor="estimate">Estimate</Label>
+                        <Input
+                          id="estimate"
+                          name="estimate"
+                          type="number"
+                          min="0"
+                        />
+                      </div>
 
-                    <SelectContent className="dark">
-                      <SelectItem value="low">Low</SelectItem>
-                      <SelectItem value="medium">Medium</SelectItem>
-                      <SelectItem value="high">High</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+                      <div className="grid gap-2">
+                        <Label htmlFor="dueDate">Due date</Label>
+                        <Input id="dueDate" name="dueDate" type="date" />
+                      </div>
+                    </div>
+                  </CardContent>
 
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  <div className="grid gap-2">
-                    <Label htmlFor="estimate">Estimate</Label>
-                    <Input
-                      id="estimate"
-                      name="estimate"
-                      type="number"
-                      min="0"
-                    />
-                  </div>
-
-                  <div className="grid gap-2">
-                    <Label htmlFor="dueDate">Due date</Label>
-                    <Input id="dueDate" name="dueDate" type="date" />
-                  </div>
-                </div>
-
-                <div className="mt-6 flex justify-end">
-                  <Button type="button">Create issue</Button>
-                </div>
+                  <CardFooter className="justify-end">
+                    <Button type="button">Create issue</Button>
+                  </CardFooter>
+                </Card>
               </form>
             </section>
           </div>
