@@ -11,20 +11,14 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 
 export function CreateIssuePage() {
-  const ab = "klklkllk";
-  const bnb = [3, 4, 5, 6, 6, 7];
-  const obj = {
-    value: 909009090909090,
-    dfd: 90909,
-  };
   return (
-    <div className="min-h-screen">
-      <header className="border-b px-6 py-4 bg-gray-300 border-b-blue-400">
+    <div className="dark min-h-screen bg-zinc-950 text-zinc-100">
+      <header className="border-b px-6 py-4 border-violet-900 bg-violet-950/60">
         <h3 className="text-lg font-bold">Issue Tracker</h3>
       </header>
 
       <div className="flex">
-        <aside className="w-64 bg-gray-300 border-r border-r-blue-400 p-4">
+        <aside className="w-64 border-r border-violet-900 bg-violet-950/30 p-4">
           <p>Sidebar</p>
         </aside>
 
@@ -55,6 +49,21 @@ export function CreateIssuePage() {
                     name="title"
                     placeholder="Enter issue heading..."
                   />
+                </div>
+
+                <div className="grid gap-2">
+                  <Label htmlFor="priority">Priority</Label>
+                  <Select name="priority">
+                    <SelectTrigger id="priority" className="w-full">
+                      <SelectValue placeholder="Select a priority" />
+                    </SelectTrigger>
+
+                    <SelectContent>
+                      <SelectItem value="low">Low</SelectItem>
+                      <SelectItem value="medium">Medium</SelectItem>
+                      <SelectItem value="high">High</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
