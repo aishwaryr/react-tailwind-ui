@@ -17,6 +17,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export function CreateIssuePage() {
   return (
@@ -85,6 +87,56 @@ export function CreateIssuePage() {
                           <SelectItem value="high">High</SelectItem>
                         </SelectContent>
                       </Select>
+                    </div>
+
+                    <div className="grid gap-3">
+                      <p id="issue-type-label" className="text-sm font-medium">
+                        Issue type
+                      </p>
+
+                      <RadioGroup
+                        name="issueType"
+                        aria-labelledby="issue-type-label"
+                        className="grid-cols-1 sm:grid-cols-3"
+                      >
+                        <div className="flex items-center gap-2 rounded-lg border p-3">
+                          <RadioGroupItem id="type-bug" value="bug" />
+                          <Label htmlFor="type-bug">Bug</Label>
+                        </div>
+
+                        <div className="flex items-center gap-2 rounded-lg border p-3">
+                          <RadioGroupItem id="type-feature" value="feature" />
+                          <Label htmlFor="type-feature">Feature</Label>
+                        </div>
+
+                        <div className="flex items-center gap-2 rounded-lg border p-3">
+                          <RadioGroupItem id="type-task" value="task" />
+                          <Label htmlFor="type-task">Task</Label>
+                        </div>
+                      </RadioGroup>
+                    </div>
+
+                    <div className="flex items-start gap-3 rounded-lg border p-3">
+                      <Checkbox
+                        id="notifyTeam"
+                        name="notifyTeam"
+                        aria-labelledby="notify-team-description"
+                      />
+                      <div className="grid gap-1">
+                        <Label htmlFor="notifyTeam">
+                          Notify team members
+                          <span className="text-muted-foreground">
+                            (optional)
+                          </span>
+                        </Label>
+
+                        <p
+                          id="notify-team-description"
+                          className="text-sm text-muted-foreground"
+                        >
+                          Send a notification when this issue is created.
+                        </p>
+                      </div>
                     </div>
 
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
